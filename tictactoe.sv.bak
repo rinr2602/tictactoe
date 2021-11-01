@@ -1,0 +1,27 @@
+module tictactoe;
+class class1;
+
+rand int unsigned a[3][3];
+rand int unsigned i,j;
+
+constraint c3 {(a.sum() == 5);}
+constraint c4 {foreach(a[i,j]) (a[i][j] >=0 && a[i][j]<=1);}
+
+endclass: class1
+
+initial
+begin
+class1 cl = new();
+
+
+repeat (10) begin
+  cl.randomize();
+
+$display("Game Over:");
+$display("%d %d %d", cl.a[0][0],cl.a[0][1],cl.a[0][2]);
+$display("%d %d %d", cl.a[1][0],cl.a[1][1],cl.a[1][2]);
+$display("%d %d %d", cl.a[2][0],cl.a[2][1],cl.a[2][2]);
+end
+end
+
+endmodule
